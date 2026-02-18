@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-02-15 13:40:24.246023",
+  "operation": "process_needs_action",
+  "original_file": "test_report.md",
+  "plan_file": "plan_test_report.md",
+  "moved_to": "Done\\test_report.md",
+  "status": "success"
+}

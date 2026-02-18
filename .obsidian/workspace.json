@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "62bea4c63ca55984",
+    "type": "split",
+    "children": [
+      {
+        "id": "e433ab44b840235b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "50ea3a260f0ec7d1",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b7bebf9795ad2e20",
+    "type": "split",
+    "children": [
+      {
+        "id": "926123d50f64f1de",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "43edbc4bdfe01e2b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5571c9e0e471881d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4b5d2feae7b5ccc4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "5e5617405eb9fbdc",
+    "type": "split",
+    "children": [
+      {
+        "id": "fb644794db45fb86",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe86fee4e2eb2e52",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "26ddd7fc2f2ba654",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "b9df21afdcbb5781",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7202d1dc84864529",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8186bd19fbc33dd1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "50ea3a260f0ec7d1",
+  "lastOpenFiles": [
+    "QUICK_START.md",
+    "PROJECT_AUDIT.md",
+    "Logs/social_activity.json",
+    "Reports/Social_Log.md",
+    "scripts/social_summary.py",
+    "scripts/setup_ralph_wiggum_scheduler.bat",
+    "scripts/ralph_wiggum.py",
+    "Errors/error_index.json",
+    "Logs/errors.log",
+    "Errors/2026-02-18",
+    "scripts/error_recovery.py",
+    "Errors",
+    "scripts/setup_ceo_briefing_scheduler.bat",
+    "Reports/CEO_Weekly_Week_8.md",
+    "Accounting/Current_Month.md",
+    "scripts/Accounting/Current_Month.md",
+    "mcp/business_mcp/IMPLEMENTATION_SUMMARY.md",
+    "mcp/business_mcp/QUICKSTART.md",
+    "mcp/business_mcp/README.md",
+    "TEST_REPORT.md",
+    "Done/Plan_test_20260218_115834.md",
+    "Plans/plan_Plan_test_20260218_115834.md",
+    "Done/Plan_linkedin_post_draft_20260218_115912.md",
+    "Plans/plan_Plan_linkedin_post_draft_20260218_115912.md",
+    "Done/Plan_email_request_20260218_115912.md",
+    "Plans/plan_Plan_email_request_20260218_115912.md",
+    "Needs_Action/test_report.md",
+    "Inbox/test.md",
+    "Done/test_welcome_email.md",
+    "Needs_Action/test_welcome_email.md",
+    "Inbox/test_welcome_email.md",
+    "Done/linkedin_post_draft.md",
+    "Needs_Action/Plan_linkedin_post_draft_20260218_115912.md",
+    "Done/email_request.md",
+    "Needs_Action/Plan_email_request_20260218_115912.md",
+    "Inbox/linkedin_post_draft.md"
+  ]
+}

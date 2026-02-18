@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "business-mcp": {
+      "command": "python",
+      "args": [
+        "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/mcp/business_mcp/server.py"
+      ],
+      "env": {
+        "EMAIL_ADDRESS": "your.email@gmail.com",
+        "EMAIL_PASSWORD": "your-app-password",
+        "SMTP_SERVER": "smtp.gmail.com",
+        "SMTP_PORT": "587",
+        "LINKEDIN_EMAIL": "your.linkedin@email.com",
+        "LINKEDIN_PASSWORD": "your-linkedin-password",
+        "LOGS_DIR": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/Logs"
+      }
+    }
+  }
+}

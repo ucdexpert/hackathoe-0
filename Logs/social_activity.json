@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2026-02-18T17:29:59.509354",
+    "date": "2026-02-18",
+    "platform": "linkedin",
+    "content": "Excited to announce our new AI Employee Vault features! #automation #AI",
+    "full_content": "Excited to announce our new AI Employee Vault features! #automation #AI",
+    "post_id": "urn:li:share:7890",
+    "post_url": "https://linkedin.com/feed/update/7890",
+    "status": "published",
+    "engagement": {
+      "likes": 45,
+      "comments": 12,
+      "shares": 8
+    },
+    "tags": [
+      "#automation",
+      "#AI",
+      "#productivity"
+    ],
+    "logged_at": "2026-02-18 17:29:59"
+  }
+]
