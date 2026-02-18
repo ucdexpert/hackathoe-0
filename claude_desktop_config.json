@@ -1,0 +1,63 @@
+{
+  "mcpServers": {
+    "business": {
+      "command": "python",
+      "args": [
+        "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/mcp/business_mcp/server.py"
+      ],
+      "env": {
+        "EMAIL_ADDRESS": "your.email@gmail.com",
+        "EMAIL_PASSWORD": "your_gmail_app_password",
+        "SMTP_SERVER": "smtp.gmail.com",
+        "SMTP_PORT": "587",
+        "LOGS_DIR": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/Logs"
+      }
+    },
+    "email": {
+      "command": "python",
+      "args": [
+        "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/mcp/email_mcp/server.py"
+      ],
+      "env": {
+        "EMAIL_ADDRESS": "your.email@gmail.com",
+        "EMAIL_PASSWORD": "your_gmail_app_password",
+        "SMTP_SERVER": "smtp.gmail.com",
+        "SMTP_PORT": "587",
+        "VAULT_PATH": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault",
+        "MAX_EMAILS_PER_HOUR": "50"
+      }
+    },
+    "social": {
+      "command": "python",
+      "args": [
+        "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/mcp/social_mcp/server.py"
+      ],
+      "env": {
+        "TWITTER_BEARER_TOKEN": "your_twitter_bearer_token",
+        "TWITTER_API_KEY": "your_twitter_api_key",
+        "TWITTER_API_SECRET": "your_twitter_api_secret",
+        "FACEBOOK_ACCESS_TOKEN": "your_facebook_access_token",
+        "FACEBOOK_PAGE_ID": "your_facebook_page_id",
+        "INSTAGRAM_ACCESS_TOKEN": "your_instagram_access_token",
+        "INSTAGRAM_BUSINESS_ACCOUNT_ID": "your_instagram_business_account_id",
+        "VAULT_PATH": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault",
+        "TWITTER_RATE_LIMIT": "50",
+        "INSTAGRAM_RATE_LIMIT": "25"
+      }
+    },
+    "fileops": {
+      "command": "python",
+      "args": [
+        "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/mcp/fileops_mcp/server.py"
+      ],
+      "env": {
+        "BROWSER_TYPE": "chromium",
+        "BROWSER_HEADLESS": "true",
+        "BROWSER_TIMEOUT": "30",
+        "SESSION_DIR": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault/.browser_session",
+        "VAULT_PATH": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault",
+        "ALLOWED_DIRECTORIES": "D:/hackathons-Q-4/hackthon-0/AI_Employee_Vault"
+      }
+    }
+  }
+}

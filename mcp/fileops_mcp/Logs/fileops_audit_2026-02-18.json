@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-02-18T18:53:34.175130",
+    "operation_type": "file",
+    "operation": "list_files",
+    "success": true,
+    "details": {
+      "directory": ".",
+      "pattern": "*.md",
+      "count": 2,
+      "duration_ms": 2.859
+    }
+  }
+]

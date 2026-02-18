@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2026-02-18T18:43:07.487850",
+    "platform": "general",
+    "operation": "create_draft",
+    "success": true,
+    "details": {
+      "platform": "twitter",
+      "content": "Draft tweet content",
+      "draft_path": "Pending_Approval\\draft_twitter_20260218_184307.md"
+    }
+  },
+  {
+    "timestamp": "2026-02-18T18:43:07.693399",
+    "platform": "general",
+    "operation": "create_draft",
+    "success": true,
+    "details": {
+      "platform": "instagram",
+      "content": "Draft Instagram post",
+      "draft_path": "Pending_Approval\\draft_instagram_20260218_184307.md"
+    }
+  }
+]

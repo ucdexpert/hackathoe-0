@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2026-02-18T18:30:34.727339",
+    "operation": "send_email",
+    "success": true,
+    "details": {
+      "to": "test@example.com",
+      "subject": "Test Email",
+      "html": false,
+      "duration_ms": 3722.947
+    }
+  },
+  {
+    "timestamp": "2026-02-18T18:30:35.183966",
+    "operation": "draft_email",
+    "success": true,
+    "details": {
+      "to": "client@example.com",
+      "subject": "Proposal",
+      "draft_path": "Pending_Approval\\draft_20260218_183035_Proposal.md"
+    }
+  }
+]

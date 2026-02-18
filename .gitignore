@@ -1,2 +1,74 @@
-.env 
---pycache__
+# Environment files (contains secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs
+Logs/*.log
+Logs/*.json
+Logs/email_*.json
+Logs/social_*.json
+Logs/fileops_*.json
+Logs/business.log
+Logs/actions.log
+Logs/errors.log
+Logs/filesystem_watcher.log
+Logs/task_planner_tracking.json
+Logs/vault_watcher_tracking.json
+Logs/ai_employee.log
+
+# Browser sessions (contains authentication cookies)
+.browser_session/
+.browser_session_backup/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MCP specific
+token.pickle
+credentials.json
+*.bak
+*.backup
+
+# Reports (optional - comment out if you want to track reports)
+# Reports/
+# Reports/*.md
+# Reports/*.json
+
+# Temporary files
+tmp/
+temp/
+*.tmp

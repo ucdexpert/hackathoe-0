@@ -1,410 +1,321 @@
-# 🚀 AI Employee Vault - Quick Start Card
+# AI Employee Vault - Quick Start Guide
 
-## ⚡ 5-Minute Setup
+**Status:** ✅ Silver Tier Complete (100%) | ⚠️ Gold Tier 56% Complete  
+**Last Tested:** 2026-02-18 18:45:00  
+**Grade:** A- (82%)
 
-### 1. Install Dependencies
+---
+
+## 1-Minute Status Check
+
+✅ **Working:**
+- All 12 folders (Inbox, Needs_Action, Plans, Done, Logs, etc.)
+- Dashboard.md & Company_Handbook.md
+- 13 Agent Skills in .claude/skills/
+- 4 MCP servers (business, email, social, fileops)
+- 18 Python scripts
+- Task workflow (create → plan → execute → complete)
+- Logging system
+- Claude Desktop configuration
+
+⚠️ **Needs Configuration:**
+- API credentials (11 total - all currently template values)
+- Python dependencies (run install script)
+- Playwright browsers (for LinkedIn automation)
+
+❌ **Missing:**
+- Odoo accounting integration (optional, 30-40 hours to implement)
+
+---
+
+## Quick Start (15 minutes)
+
+### Step 1: Install Dependencies (5 minutes)
+
 ```bash
-pip install watchdog playwright python-dotenv tabulate
-playwright install
+# Navigate to project
+cd D:\hackathons-Q-4\hackthon-0\AI_Employee_Vault
+
+# Run installation script
+install_all_mcps.bat
+
+# Install Playwright browsers
+playwright install chromium
 ```
 
-### 2. Configure Credentials
-Edit `.env` file:
+### Step 2: Configure Credentials (5 minutes)
+
+```bash
+# Edit .env file
+notepad .env
+```
+
+**Minimum Required (for email):**
 ```bash
 EMAIL_ADDRESS=your.email@gmail.com
-EMAIL_PASSWORD=your-app-password
-LINKEDIN_EMAIL=your.linkedin@email.com
-LINKEDIN_PASSWORD=your-password
+EMAIL_PASSWORD=your_gmail_app_password
 ```
 
-### 3. Start Core Services
+**Get Gmail App Password:**
+1. Go to https://myaccount.google.com/apppasswords
+2. Enable 2-Factor Authentication
+3. Generate App Password for "Mail"
+4. Copy 16-character password to .env
+
+**Optional (for social media):**
+- Twitter: developer.twitter.com
+- Facebook: developers.facebook.com
+- Instagram: Link to Facebook Page
+
+### Step 3: Configure Claude Desktop (2 minutes)
+
 ```bash
-# Terminal 1: Filesystem Watcher
-python filesystem_watcher.py
+# Copy config to Claude Desktop
+copy claude_desktop_config.json %APPDATA%\Claude\
 
-# Terminal 2: Ralph Wiggum (Autonomous Loop)
-python scripts/ralph_wiggum.py run
+# Restart Claude Desktop
+```
 
-# Terminal 3: MCP Server
-cd mcp/business_mcp && python server.py
+### Step 4: Test Basic Functionality (3 minutes)
+
+```bash
+# Test Email MCP
+cd mcp\email_mcp
+echo {"method": "validate_email", "params": {"email": "test@example.com"}} | python server.py
+
+# Test FileOps MCP
+cd mcp\fileops_mcp
+echo {"method": "file.list_files", "params": {"directory": ".", "pattern": "*.md"}} | python server.py
+
+# Test core workflow
+cd D:\hackathons-Q-4\hackthon-0\AI_Employee_Vault
+python scripts\ralph_wiggum.py run
 ```
 
 ---
 
-## 📋 Common Commands
+## Detailed Setup
 
-### Task Processing
+### Core Components
+
+**1. Filesystem Watcher** (Monitors Inbox)
 ```bash
-# Process next task autonomously
-python scripts/ralph_wiggum.py run
-
-# Process specific task
-python scripts/ralph_wiggum.py run --task Needs_Action/email.md
-
-# Manual orchestration
-python orchestrator.py
+python filesystem_watcher.py
+# Runs continuously, watches Inbox/ folder
+# Press Ctrl+C to stop
 ```
 
-### Email
+**2. Ralph Wiggum Autonomous Loop** (Processes tasks)
 ```bash
-# Send email
-python scripts/send_email.py --to client@example.com --subject "Hello" --body "Message"
-
-# Via MCP
-cd mcp/business_mcp
-python server.py --test-email
+python scripts\ralph_wiggum.py run
+# Processes tasks from Needs_Action/
+# Creates plans, executes steps, moves to Done
 ```
 
-### LinkedIn
+**3. CEO Briefing** (Weekly reports)
 ```bash
-# Post to LinkedIn
-python scripts/post_linkedin.py --content "Business update #innovation"
-
-# Log to social summary
-python scripts/social_summary.py log -p linkedin -c "Post content" --engagement "{\"likes\": 50}"
+python scripts\ceo_briefing.py generate
+# Generates comprehensive weekly report
+# Saves to Reports/CEO_Weekly.md
 ```
 
-### Accounting
+**4. Accounting Manager** (Track finances)
 ```bash
 # Log income
-python scripts/accounting_manager.py log -t income -a 5000 -d "Product sales" -c sales
+python scripts\accounting_manager.py log -t income -a 5000 -d "Product sales" -c sales
 
 # Log expense
-python scripts/accounting_manager.py log -t expense -a 2000 -d "Office rent" -c rent
+python scripts\accounting_manager.py log -t expense -a 2000 -d "Office rent" -c rent
 
 # View summary
-python scripts/accounting_manager.py summary
+python scripts\accounting_manager.py summary
 ```
 
-### Reports
+### MCP Servers
+
+**Business MCP** (Email + LinkedIn)
 ```bash
-# Generate CEO Weekly Briefing
-python scripts/ceo_briefing.py generate
-
-# View social media summary
-python scripts/social_summary.py summary --days 7
-
-# View recent social posts
-python scripts/social_summary.py recent --limit 10
-```
-
-### Error Handling
-```bash
-# View recent errors
-python scripts/error_recovery.py recent
-
-# View error statistics
-python scripts/error_recovery.py stats --days 7
-
-# Clear old errors
-python scripts/error_recovery.py clear --days-old 30
-```
-
----
-
-## ⏰ Setup Automatic Scheduling
-
-### Windows Task Scheduler
-```bash
-# CEO Briefing - Every Monday 8 AM
-python scripts/ceo_briefing.py setup-scheduler
-
-# Ralph Wiggum - Every hour
-python scripts/ralph_wiggum.py setup-scheduler
-
-# Or use batch files
-scripts\setup_ceo_briefing_scheduler.bat install
-scripts\setup_ralph_wiggum_scheduler.bat install
-```
-
-### Linux/Mac Cron
-```bash
-crontab -e
-# CEO Briefing - Every Monday 8 AM
-0 8 * * 1 cd /path/to/vault && python scripts/ceo_briefing.py generate
-
-# Ralph Wiggum - Every hour
-0 * * * * cd /path/to/vault && python scripts/ralph_wiggum.py run
-```
-
----
-
-## 📊 Monitoring Commands
-
-### Check System Status
-```bash
-# View Dashboard
-cat Dashboard.md
-
-# Check pending tasks
-dir Needs_Action
-
-# Check pending approvals
-dir Needs_Approval
-
-# View recent completions
-dir Done
-```
-
-### View Logs
-```bash
-# Error logs
-Get-Content Logs\errors.log -Tail 20
-
-# Ralph Wiggum execution
-Get-Content Logs\ralph_wiggum.log -Tail 20
-
-# Business activities
-Get-Content Logs\business.log -Tail 20
-
-# Accounting
-Get-Content Accounting\logs\accounting.log -Tail 20
-```
-
-### Statistics
-```bash
-# Ralph Wiggum stats
-python scripts/ralph_wiggum.py stats
-
-# Social media summary
-python scripts/social_summary.py summary --days 7
-
-# Error statistics
-python scripts/error_recovery.py stats
-```
-
----
-
-## 🧪 Testing
-
-### Run All Tests
-```bash
-pytest tests/ -v
-```
-
-### Test Individual Components
-```bash
-# Filesystem Watcher
-pytest tests/test_filesystem_watcher.py -v
-
-# MCP Executor
-pytest tests/test_mcp_executor.py -v
-
-# Orchestrator
-pytest tests/test_orchestrator.py -v
-
-# Send Email
-pytest tests/test_send_email.py -v
-```
-
-### Test Scripts
-```bash
-# Error recovery test
-python scripts/error_recovery.py test
-
-# Ralph Wiggum test (dry run)
-python scripts/ralph_wiggum.py test
-
-# MCP Server test
-cd mcp/business_mcp
+cd mcp\business_mcp
 python server.py --status
 ```
 
----
-
-## 📁 Important Files & Folders
-
-### Configuration
-- `.env` - Your credentials (DO NOT COMMIT)
-- `requirements.txt` - Python dependencies
-- `claude_desktop_config.json` - Claude Desktop MCP config
-
-### Core Scripts
-- `filesystem_watcher.py` - Monitors Inbox
-- `orchestrator.py` - Processes tasks
-- `scripts/ralph_wiggum.py` - Autonomous loop
-- `scripts/ceo_briefing.py` - Weekly reports
-- `mcp/business_mcp/server.py` - MCP server
-
-### Skills (14 Total)
-Located in `.claude/skills/`:
-- accounting-manager
-- ceo-briefing
-- error-recovery
-- human-approval
-- linkedin-post
-- mcp-executor
-- ralph-wiggum
-- social-summary
-- task-planner
-- vault-file-manager
-- vault-watcher
-- ...and 3 more
-
-### Data Folders
-- `Inbox/` - New files trigger processing
-- `Needs_Action/` - Tasks pending action
-- `Plans/` - Generated execution plans
-- `Done/` - Completed tasks
-- `Needs_Approval/` - Pending approvals
-- `Approved/` - Approved items
-- `Rejected/` - Rejected items
-- `Errors/` - Quarantined files
-- `Accounting/` - Financial records
-- `Reports/` - Generated reports
-- `Logs/` - Audit logs
-
-### Key Reports
-- `Dashboard.md` - Main dashboard
-- `Reports/CEO_Weekly_Week_X.md` - Weekly executive reports
-- `Reports/Social_Log.md` - Social media activity log
-- `Accounting/Current_Month.md` - Monthly financial records
-
----
-
-## 🔧 Troubleshooting
-
-### Watcher Not Detecting Files
+**Email MCP** (Production email)
 ```bash
-# Check Inbox folder exists
-dir Inbox
-
-# Check watcher log
-Get-Content filesystem_watcher.log -Tail 20
-
-# Restart watcher
-python filesystem_watcher.py
+cd mcp\email_mcp
+python test_server.py
 ```
 
-### Tasks Not Processing
+**Social MCP** (Twitter/FB/Instagram)
 ```bash
-# Check Needs_Action folder
-dir Needs_Action
-
-# Run Ralph Wiggum manually
-python scripts/ralph_wiggum.py run
-
-# Check execution log
-Get-Content Logs\ralph_wiggum.log -Tail 20
+cd mcp\social_mcp
+python test_server.py
 ```
 
-### MCP Server Not Starting
+**FileOps MCP** (Browser + File ops)
 ```bash
-# Check MCP installed
-pip show mcp
-
-# Check server status
-cd mcp/business_mcp
-python server.py --status
-
-# Check logs
-Get-Content ..\..\Logs\business.log -Tail 20
-```
-
-### Email Not Sending
-```bash
-# Verify .env credentials
-cat .env | findstr EMAIL
-
-# Test email
-python scripts/send_email.py --test
-
-# Check SMTP settings
-# EMAIL_ADDRESS must be Gmail
-# EMAIL_PASSWORD must be App Password (not regular password)
-```
-
-### LinkedIn Not Posting
-```bash
-# Check Playwright installed
-playwright install
-
-# Test posting
-python scripts/post_linkedin.py --content "Test"
-
-# Check credentials in .env
+cd mcp\fileops_mcp
+python test_server.py
 ```
 
 ---
 
-## 📞 Quick Help
+## Daily Operations
 
-### View Help
-```bash
-# General help
-python scripts/ralph_wiggum.py --help
+### Morning Routine (5 minutes)
 
-# Specific command help
-python scripts/ceo_briefing.py --help
-```
-
-### Project Documentation
-- `README.md` - Project overview
-- `PROJECT_AUDIT.md` - Complete audit and status
-- `TEST_REPORT.md` - Test results
-- `mcp/business_mcp/README.md` - MCP server docs
-
-### Skill Documentation
-Each skill has documentation in `.claude/skills/[skill-name]/`:
-- `SKILL.md` - Full skill documentation
-- Usage examples
-- Parameters and return values
-
----
-
-## 🎯 Daily Workflow
-
-### Morning (5 minutes)
 ```bash
 # 1. Check Dashboard
-cat Dashboard.md
+type Dashboard.md
 
 # 2. Check pending approvals
 dir Needs_Approval
 
 # 3. Run Ralph Wiggum
-python scripts/ralph_wiggum.py run
+python scripts\ralph_wiggum.py run
+
+# 4. Check errors
+python scripts\error_recovery.py recent
 ```
 
-### Weekly (15 minutes - Monday)
+### Weekly Routine (15 minutes - Monday)
+
 ```bash
 # 1. Generate CEO Briefing
-python scripts/ceo_briefing.py generate
+python scripts\ceo_briefing.py generate
 
 # 2. Review Social Log
-cat Reports\Social_Log.md
+type Reports\Social_Log.md
 
 # 3. Review Accounting
-python scripts/accounting_manager.py summary
+python scripts\accounting_manager.py summary
 
 # 4. Clear old errors
-python scripts/error_recovery.py clear --days-old 30
+python scripts\error_recovery.py clear --days-old 30
 ```
 
-### Monthly (30 minutes)
+---
+
+## Troubleshooting
+
+### "NOT_CONFIGURED" Error
+
+**Problem:** MCP servers report credentials not configured
+
+**Solution:**
+1. Edit .env file with actual credentials
+2. Restart MCP server
+3. Test again
+
+### Playwright Not Working
+
+**Problem:** Browser automation fails
+
+**Solution:**
 ```bash
-# 1. Review all logs
-Get-Content Logs\errors.log | Measure-Object -Line
+pip install --upgrade playwright
+playwright install chromium
+```
 
-# 2. Archive old reports
-# Move old Reports/ to archive folder
+### File Access Denied
 
-# 3. Update credentials if needed
-# Edit .env file
+**Problem:** Cannot access files outside vault
+
+**Solution:**
+- Files must be within ALLOWED_DIRECTORIES
+- Default: D:\hackathons-Q-4\hackthon-0\AI_Employee_Vault
+- Add directories to .env if needed
+
+### Rate Limit Exceeded
+
+**Problem:** Email or social media rate limit hit
+
+**Solution:**
+- Wait for limit to reset (next hour/day)
+- Check Logs/*_rate_limit.json
+- Increase limits in .env (within platform guidelines)
+
+---
+
+## Verification Checklist
+
+After setup, verify everything works:
+
+- [ ] All folders exist (Inbox, Needs_Action, Plans, Done, Logs, etc.)
+- [ ] Dashboard.md exists and updates
+- [ ] Company_Handbook.md exists
+- [ ] .env file configured with at least Gmail credentials
+- [ ] claude_desktop_config.json in %APPDATA%\Claude\
+- [ ] Dependencies installed (run install_all_mcps.bat)
+- [ ] Playwright browsers installed
+- [ ] Test task can be created and processed
+- [ ] MCP servers respond to test requests
+- [ ] Logs are being created in Logs/ folder
+
+**Test Command:**
+```bash
+# Create test task
+echo "# Test Task" > Needs_Action\test_[timestamp].md
+
+# Process it
+python scripts\ralph_wiggum.py run
+
+# Verify plan created
+dir Plans\Plan_test_*
+
+# Verify dashboard updated
+type Dashboard.md | findstr "test"
+
+# Verify task moved
+dir Done\test_*
 ```
 
 ---
 
-## ✅ Project Status
+## Current Status Summary
 
-**Bronze Tier:** ✅ 100% COMPLETE  
-**Silver Tier:** ✅ 100% COMPLETE  
-**Gold Tier:** ⚠️ 56% COMPLETE (5/9 features)
+### ✅ Complete (Bronze + Silver)
 
-**Overall:** 82% Complete (18/22 requirements)
+- 13 Agent Skills
+- 4 MCP Servers
+- 18 Python Scripts
+- Full folder structure
+- Task workflow
+- Approval system
+- Scheduling
+- Error recovery
+- Audit logging
+- CEO Briefing
+- Ralph Wiggum loop
 
-See `PROJECT_AUDIT.md` for detailed status.
+### ⚠️ Needs Credentials
+
+- Gmail (for email MCP)
+- Twitter API (for social MCP)
+- Facebook (for social MCP)
+- Instagram (for social MCP)
+- LinkedIn (for browser automation - or use manual login)
+
+### ❌ Missing (Optional for Gold)
+
+- Odoo accounting integration (30-40 hours)
 
 ---
+
+## Next Steps
+
+**For Silver Tier Submission:**
+✅ **READY NOW** - No additional work needed!
+
+**For Gold Tier Completion:**
+1. Configure all API credentials (1-2 hours)
+2. Implement Odoo accounting (30-40 hours)
+
+---
+
+**Questions?** See documentation:
+- RUNNING_GUIDE.md - Complete running instructions
+- MCP_SETUP_GUIDE.md - MCP server configuration
+- PROJECT_AUDIT.md - Detailed tier assessment
+- TEST_REPORT_20260218_184500.md - Latest test results
 
 **Happy Automating! 🤖**
